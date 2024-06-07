@@ -2,41 +2,85 @@ import React from 'react'
 import Navebar from './Navebar'
 
 const Empviewall = () => {
+
+  const data = [
+    {
+      
+      "id": 1,
+      "name": "amjath",
+      "salary":25000
+    },
+    {
+      
+      "id": 2,
+      "name": "amal",
+      "salary":25000
+    },
+    {
+      
+      "id": 3,
+      "name": "salman",
+      "salary":55000
+    },
+    {
+      
+      "id": 4,
+      "name": "ammu",
+      "salary":29000
+    },
+    {
+      
+      "id": 5,
+      "name": "hamzan",
+      "salary":25000
+    },
+    {
+      
+      "id": 6,
+      "name": "rizna",
+      "salary":55000
+    },
+    {
+      
+      "id":7,
+      "name": "kavya",
+      "salary":55000
+    },
+    {
+      
+      "id": 8,
+      "name": "sabeeha",
+      "salary":55000
+    }
+    // Add more data objects as needed
+  ];
+
   return (
     <div>
-        <Navebar/>
-      <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Joined Year</th>
-      <th scope="col">Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">C001</th>
-      <td>Mark</td>
-      <td>2012</td>
-      <td>50000</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>2018</td>
-      <td>35000</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Salman</td>
-      <td>2015</td>
-      <td>55000</td>
-    </tr>
-  </tbody>
-</table>
+      <Navebar/>
+      <table className="table">
+        <thead>
+          <tr>
+          
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">slary</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {data.map(item => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.salary}</td>
+              
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+  );
 }
 
-export default Empviewall
+export default Empviewall;
