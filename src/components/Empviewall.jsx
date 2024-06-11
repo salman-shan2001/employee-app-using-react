@@ -1,60 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navebar from './Navebar'
+import axios from 'axios'
 
 const Empviewall = () => {
 
-  const data = [
-    {
-      
-      "id": 1,
-      "name": "amjath",
-      "salary":25000
-    },
-    {
-      
-      "id": 2,
-      "name": "amal",
-      "salary":25000
-    },
-    {
-      
-      "id": 3,
-      "name": "salman",
-      "salary":55000
-    },
-    {
-      
-      "id": 4,
-      "name": "ammu",
-      "salary":29000
-    },
-    {
-      
-      "id": 5,
-      "name": "hamzan",
-      "salary":25000
-    },
-    {
-      
-      "id": 6,
-      "name": "rizna",
-      "salary":55000
-    },
-    {
-      
-      "id":7,
-      "name": "kavya",
-      "salary":55000
-    },
-    {
-      
-      "id": 8,
-      "name": "sabeeha",
-      "salary":55000
-    }
-    // Add more data objects as needed
-  ];
-
+  const [employee,changeemp]=useState([])
+  const fetchData=()=>{
+    axios.get("http://localhost:8080/view").then(
+      (response)=>{changeemp(response.data)}
+    ).catch().finally()
+  }
+useEffect(()=>{fetchData()},[])
   return (
     <div>
       <Navebar/>
@@ -69,7 +25,7 @@ const Empviewall = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map(item => (
+          {employee.map(item => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
